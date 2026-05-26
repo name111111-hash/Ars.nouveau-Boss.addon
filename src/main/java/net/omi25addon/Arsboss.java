@@ -1,7 +1,8 @@
-package net.omi25.ars.nouveau.boss.addon;
+package net.omi25addon;
 
 import net.minecraft.world.item.CreativeModeTabs;
-import net.omi25.ars.nouveau.boss.addon.item.ModItems;
+import net.omi25addon.block.ModBlocks;
+import net.omi25addon.item.ModItems;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -41,6 +42,7 @@ public class Arsboss {
         NeoForge.EVENT_BUS.register(this);
 
        ModItems.register(modEventBus);
+       ModBlocks.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -56,6 +58,9 @@ public class Arsboss {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS){
             event.accept(ModItems.OMISHARD);
+        }
+        if(event.getTabKey()==CreativeModeTabs.BUILDING_BLOCKS){
+            event.accept(ModBlocks.OMI_BLOCK);
         }
     }
 

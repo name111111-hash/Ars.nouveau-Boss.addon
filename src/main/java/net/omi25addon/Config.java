@@ -1,4 +1,4 @@
-package net.omi25.ars.nouveau.boss.addon;
+package net.omi25addon;
 
 import java.util.List;
 
