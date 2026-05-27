@@ -189,4 +189,7 @@ idea {
         downloadSources = true
         downloadJavadoc = true
     }
+    dependencies {
+        implementation "net.neoforged:neoforge:${neo_version}"
+    }
 }

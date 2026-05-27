@@ -1,6 +1,7 @@
-package net.omi25addon;
+package net.omi25addon.arsboss;
 
 import java.util.List;
+
 
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "omi25peakcreation:omi_block"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "omi25peakcreation:blocks/omi_block"
+}

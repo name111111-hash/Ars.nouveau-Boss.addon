@@ -1,10 +1,10 @@
-package net.omi25addon.item;
+package net.omi25addon.arsboss.item;
 
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.omi25addon.Arsboss;
+import net.omi25addon.arsboss.Arsboss;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Arsboss.MODID);

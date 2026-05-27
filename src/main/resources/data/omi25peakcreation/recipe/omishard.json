@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "omi25peakcreation:omi_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "omi25peakcreation:omishard"
+  }
+}
