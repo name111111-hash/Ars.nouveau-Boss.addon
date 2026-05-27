@@ -10,6 +10,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.omi25addon.arsboss.Arsboss;
 import net.omi25addon.arsboss.block.custom.omijar;
+import net.omi25addon.arsboss.block.ModBlockEntities;
 import net.omi25addon.arsboss.item.ModItems;
 
 import java.util.function.Supplier;
@@ -22,19 +23,19 @@ public class ModBlocks {
             ()->new Block(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST_CLUSTER)));
 
     public static final DeferredBlock<omijar> OMIJAR = registerBlock("omijar",
-            () -> new omijar(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.GLASS)));
+            () -> new omijar(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops().sound(SoundType.GLASS).noOcclusion()));
 
-private static <T extends net.minecraft.world.level.block.Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
-    DeferredBlock<T> toReturn = BLOCKS.register(name,block);
-    registerBlockItem(name,toReturn);
-    return toReturn;
+    private static <T extends net.minecraft.world.level.block.Block> DeferredBlock<T> registerBlock(String name, Supplier<T> block){
+        DeferredBlock<T> toReturn = BLOCKS.register(name,block);
+        registerBlockItem(name,toReturn);
+        return toReturn;
 
 
-}
+    }
 
-private static <T extends net.minecraft.world.level.block.Block> void registerBlockItem(String name, DeferredBlock<T> block){
-    ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()));
-}
+    private static <T extends net.minecraft.world.level.block.Block> void registerBlockItem(String name, DeferredBlock<T> block){
+        ModItems.ITEMS.register(name, ()-> new BlockItem(block.get(), new Item.Properties()));
+    }
     public static void register(IEventBus eventBus){
         BLOCKS.register(eventBus);
     }

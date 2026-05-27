@@ -1,6 +1,7 @@
 package net.omi25addon.arsboss;
 
 import net.minecraft.world.item.CreativeModeTabs;
+import net.omi25addon.arsboss.block.ModBlockEntities;
 import net.omi25addon.arsboss.block.ModBlocks;
 import net.omi25addon.arsboss.item.ModCreativeModeTabs;
 import net.omi25addon.arsboss.item.ModItems;
@@ -42,9 +43,10 @@ public class Arsboss {
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
         NeoForge.EVENT_BUS.register(this);
 
-       ModItems.register(modEventBus);
-       ModBlocks.register(modEventBus);
-       ModCreativeModeTabs.register(modEventBus);
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModCreativeModeTabs.register(modEventBus);
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
@@ -77,6 +79,13 @@ public class Arsboss {
     static class ClientModEvents {
         @SubscribeEvent
         static void onClientSetup(FMLClientSetupEvent event) {
+            // Make the Omi Jar render as translucent so glass is see-through and connected textures display correctly
+            try {
+                net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer(ModBlocks.OMIJAR.get(), net.minecraft.client.renderer.RenderType.translucent());
+            } catch (NoClassDefFoundError | Exception e) {
+                // Ignore in dedicated server or unexpected environments
+                LOGGER.warn("Could not set render layer for OmiJar: {}", e.toString());
+            }
         }
     }
 }

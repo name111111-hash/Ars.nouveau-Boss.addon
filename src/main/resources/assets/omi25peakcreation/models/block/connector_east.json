@@ -1,0 +1,19 @@
+{
+  "parent": "block/cube_all",
+  "render_type": "translucent",
+  "ambientocclusion": false,
+  "textures": {
+    "c": "omi25peakcreation:26"
+  },
+  "elements": [
+    {
+      "from": [12, 2, 3],
+      "to": [13, 13, 13],
+      "faces": {
+        "east": { "uv": [0, 0, 10, 11], "texture": "#c" },
+        "north": { "uv": [0, 0, 1, 11], "texture": "#c" },
+        "south": { "uv": [9, 0, 10, 11], "texture": "#c" }
+      }
+    }
+  ]
+}
